@@ -1,0 +1,12 @@
+
+# Aliases
+command alias simulateMemoryWarning e -l objc -- [[UIApplication sharedApplication] _receivedMemoryNotification]
+command alias printDocumentsPath e -l objc -O -- [(NSArray*)NSSearchPathForDirectoriesInDomains(9,1,YES) firstObject]
+
+# RegEx Aliases
+command regex asyncMainAfter 's/(\d+) (.+)/expression -- DispatchQueue.main.async { DispatchQueue.main.asyncAfter(deadline: .now() + %1) { %2 } }/'
+command regex assetName 's/(.+)/po [[%1 imageAsset] assetName]/'
+
+# External Modules
+command alias reloadExtensions command script import /Users/lem/extensions.py
+reloadExtensions
